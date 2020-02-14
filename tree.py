@@ -71,6 +71,5 @@ if __name__ == "__main__":
 
     text = "(asciitree (sometimes you) (just (want to draw)) trees (in (your terminal)))"
     example_tree, list = Tree.fromString(text)
-    print(example_tree)
     example_tree.show()
 
