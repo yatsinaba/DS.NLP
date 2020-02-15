@@ -1,3 +1,10 @@
+import argparse
+
+parser = argparse.ArgumentParser(description='скрипт, який приймає на вхід текстовий опис дерева і друкує його так, як утиліта asciitre')
+
+parser.add_argument('--str', default='(asciitree (sometimes you) (just (want to draw)) trees (in (your terminal)))', help="Build tree and show it from string. default example: \
+(asciitree (sometimes you) (just (want to draw)) trees (in (your terminal)))")
+
 class Tree:
     def __init__(self, value):
         self.value = value
@@ -66,10 +73,12 @@ class Tree:
     def __repr__(self):
         return '{}{}'.format(self.value, ': {}'.format(self.children) if self.children else '')
 
-
 if __name__ == "__main__":
 
-    text = "(asciitree (sometimes you) (just (want to draw)) trees (in (your terminal)))"
+    args = parser.parse_args()
+
+    text = args.str
     example_tree, list = Tree.fromString(text)
+    print(example_tree)
     example_tree.show()
 
